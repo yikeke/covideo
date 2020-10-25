@@ -9,7 +9,7 @@ from optparse import OptionParser
 def clip_path(path):
     supported_video_formats = (".mp4", ".m4v", "mov", ".avi", ".mpeg", ".wmv", "flv", "f4v") # 常见的视频文件格式还有：asf、rmvb、rm、3gp、vob等等。(https://ffmpeg.org/ffmpeg-all.html#toc-mov_002fmp4_002f3gp)
     if not (path.endswith(supported_video_formats)): # or .avi, .mpeg, whatever.
-        err = "ERROR: " + path + " 格式不支持处理。"
+        err = "ERROR: " + path + " 文件格式不支持处理。"
         return err
     else:
         print("正在剪辑 " + path + "...")
@@ -22,7 +22,7 @@ def clip_path(path):
             os.makedirs(clips_path)
         output_file = os.path.join(clips_path,name) + '-' + start_time + '-' + stop_time + suffix
         if os.system("ffmpeg -ss {2} -to {3} -accurate_seek -i {0} -c copy -avoid_negative_ts 1 {1}".format(path,output_file,start_time,stop_time)) == 0:
-            print(path + " 视频剪切成功！请稍等片刻，剪切好的视频会存放在 " + clips_path + "。")
+            print("视频 " + path + " 剪切成功！请稍等片刻，剪切好的视频会存放在 " + clips_path + "。")
             return 0
         else:
             exit("ERROR: 视频剪切失败！请确保 ffmpeg 已下载，且你是在包含 ffmpeg 可执行程序的目录下执行 covideo 命令。")
@@ -33,7 +33,7 @@ def clip_dir(directory):
         # 忽略 clips 文件夹
         dirs[:] = [d for d in dirs if d not in ['clips']]
         for name in files:
-            print(files)
+            # print(files)
             errors = clip_path(os.path.join(root, name))
             if errors:
                 err.append(errors)
@@ -53,13 +53,13 @@ def process(opt):
         # clip = clip.strip() # 去掉首尾空格
         if os.path.isfile(clip):
             print("下面输入的时间支持两种格式：")
-            print("1. 纯数字格式，以秒为单位。如输入 60 表示视频的第 60 秒；")
+            print("1. 纯数字格式，以秒为单位。如输入 60 表示视频的第 60 秒。")
             print("2. 时:分:秒格式。如输入 00:03:40 表示视频的 3 分 40 秒。\n")
             clip_path(clip)
 
         elif os.path.isdir(clip):
             print("下面输入的时间格式支持两种格式：")
-            print("1. 纯数字格式，以秒为单位。如输入 60 表示视频的第 60 秒；")
+            print("1. 纯数字格式，以秒为单位。如输入 60 表示视频的第 60 秒。")
             print("2. 时:分:秒格式。如输入 00:03:40 表示视频的 3 分 40 秒。\n")
             clip_dir(clip)
         else:
