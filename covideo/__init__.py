@@ -7,7 +7,7 @@ import os
 from optparse import OptionParser
 
 def clip_path(path):
-    supported_video_formats = (".mp4", ".avi", ".mpeg", ".wmv", ".m4v", "mov", "flv", "f4v") # 常见的视频文件格式还有：asf、rmvb、rm、3gp、vob等等。(https://ffmpeg.org/ffmpeg-all.html#toc-mov_002fmp4_002f3gp)
+    supported_video_formats = (".mp4", ".m4v", "mov", ".avi", ".mpeg", ".wmv", "flv", "f4v") # 常见的视频文件格式还有：asf、rmvb、rm、3gp、vob等等。(https://ffmpeg.org/ffmpeg-all.html#toc-mov_002fmp4_002f3gp)
     if not (path.endswith(supported_video_formats)): # or .avi, .mpeg, whatever.
         err = "ERROR: " + path + " 格式不支持处理。"
         return err
