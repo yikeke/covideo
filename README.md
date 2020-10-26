@@ -1,5 +1,7 @@
 # covideo - 基于 ffmpeg 开发的批量处理命令行工具
 
+> **本文来自“一只狍子的奇思妙想”公众号，欢迎关注，探索更多奇妙的工具与思考。
+
 > [ffmpeg](https://zh.wikipedia.org/wiki/FFmpeg) 是视频处理最常用的开源软件。它功能强大，用途广泛，大量用于视频网站和商业软件（比如 Youtube 和 iTunes），也是许多音频和视频格式的标准编码/解码实现。——来自[阮一峰](https://www.ruanyifeng.com/blog/2020/01/ffmpeg.html)
 
 covideo 是一个视频处理相关的命令行工具。只需一行命令，便可批量处理视频。
