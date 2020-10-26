@@ -5,7 +5,7 @@ import setuptools
 
 setuptools.setup(
     name='covideo',
-    version='0.0.3',
+    version='0.0.4',
     author='yikeke',
     author_email='yikeke@pingcap.com',
     url='https://github.com/yikeke/covideo',

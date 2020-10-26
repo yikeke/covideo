@@ -12,7 +12,7 @@ def clip_path(path):
         err = "ERROR: " + path + " 文件格式不支持处理。"
         return err
     else:
-        print("正在剪辑 " + path + "...")
+        print("\n正在剪辑 " + path + "...")
         start_time = input('请输入剪切起始时间（按回车确认）：')
         stop_time = input('请输入剪切结束时间（按回车确认）：')
         file_dir, filename = os.path.split(path)     # 分割文件名与目录
@@ -74,7 +74,7 @@ def process(opt):
         print('请选定一个选项，执行 `covideo -h` 列出所有选项。')
 
 def exe_main():
-    parser = OptionParser(version="%prog 0.0.3")
+    parser = OptionParser(version="%prog 0.0.4")
     parser.set_defaults(verbose=True)
     parser.add_option("-c", "--clip", dest="clip", type="string",
                       help="Use this option to clip videos of many formats; receive one argument that can be a file path or a directory", metavar="CLIP")
